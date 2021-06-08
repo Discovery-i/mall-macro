@@ -12,6 +12,8 @@
     <modules>
         <module>mall-gateway</module>
         <module>mall-eureka</module>
+        <module>mall-common</module>
+        <module>mall-mbg</module>
     </modules>
 
     <parent>
