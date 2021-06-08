@@ -9,5 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/sso")
 public class UmsMemberController {
 
-    
+    @ResponseBody
+    @RequestMapping("/hello")
+    public CommonResult hello(){
+        return CommonResult.success(null, "sso-hello");
+    }
 }
