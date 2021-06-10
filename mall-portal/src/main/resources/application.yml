@@ -1,20 +1,17 @@
 server:
   port: 8085
-eureka:
-  client:
-    register-with-eureka: true #注册到Eureka的注册中心
-    fetch-registry: true #获取注册实例列表
-    service-url:
-      defaultZone: http://localhost:8001/eureka/ #配置注册中心地址
-      server:
-        enable-self-preservation: true #关闭保护模式
+
 spring:
-  application:
-    name: mall-portal #服务名称
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.168.1:8848 #配置Nacos地址
+
   datasource:
-    url: jdbc:mysql://192.168.168.128:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.168.129:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
+
     druid:
       initial-size: 5 #连接池初始化大小
       min-idle: 10 #最小空闲连接数
@@ -25,7 +22,7 @@ spring:
         login-username: druid
         login-password: druid
   redis:
-    host: 192.168.168.128 # Redis服务器地址
+    host: 192.168.168.129 # Redis服务器地址
     database: 0 # Redis数据库索引（默认为0）
     port: 6379 # Redis服务器连接端口
     password: # Redis服务器连接密码（默认为空）
