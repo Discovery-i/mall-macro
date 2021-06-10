@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 @RequestMapping("/demo")
 public class UserController {
+    //ribbon
     @Autowired
     RestTemplate restTemplate;
 
