@@ -12,7 +12,6 @@ spring:
       web-stat-filter:
         exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*" #不统计这些请求数据
 
-
   redis:
     host: 192.168.168.129 # Redis服务器地址
     database: 0 # Redis数据库索引（默认为0）
@@ -31,3 +30,7 @@ redis:
 ribbon:
   ConnectTimeout: 3000 #服务请求连接超时时间（毫秒）
   ReadTimeout: 3000 #服务请求处理超时时间（毫秒）
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
