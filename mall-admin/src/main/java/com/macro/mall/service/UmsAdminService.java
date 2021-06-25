@@ -14,7 +14,7 @@ public interface UmsAdminService {
                         String keyword //搜索词);
     );
 
-    UmsAdmin getItem(long id);
+    UmsAdmin getItem(Long id);
 
     int update(Long id, UmsAdmin umsAdmin);
 

@@ -68,7 +68,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     }
 
     @Override
-    public UmsAdmin getItem(long id) {
+    public UmsAdmin getItem(Long id) {
         return umsAdminMapper.selectByPrimaryKey(id);
     }
 

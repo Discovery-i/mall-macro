@@ -37,7 +37,7 @@ public class UmsAdminController {
     }
 
     @GetMapping("/{id}")//查找单个item
-    public CommonResult<UmsAdmin> getItem(@PathVariable long id) {
+    public CommonResult<UmsAdmin> getItem(@PathVariable Long id) {
         return CommonResult.success(umsAdminService.getItem(id), "查询成功");
     }
 
