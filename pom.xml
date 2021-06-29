@@ -17,6 +17,7 @@
         <module>mall-portal</module>
         <module>mall-demo</module>
         <module>mall-admin</module>
+        <module>mall-auth</module>
     </modules>
 
     <parent>

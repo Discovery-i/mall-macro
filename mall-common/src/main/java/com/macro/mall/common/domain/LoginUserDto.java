@@ -13,12 +13,11 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-public class UserDto {
+public class LoginUserDto {
     private Long id;
     private String username;
     private String password;
     private Integer status;
     private String clientId;
     private List<String> roles;
-
 }

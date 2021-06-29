@@ -38,7 +38,7 @@
         <!--生成全部表tableName设为%-->
 
         <!-- pms_brand -->
-        <table tableName="ums_role">
+        <table tableName="ums_resource_category">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
