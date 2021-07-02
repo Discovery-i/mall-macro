@@ -1,80 +1,82 @@
 package com.macro.mall.dto;
 
-import com.macro.mall.common.domain.LoginUserDto;
 import lombok.Data;
-import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.ArrayList;
 import java.util.Collection;
 
 @Data
-public class SecurityUser implements UserDetails {
+public class SecurityUser implements  UserDetails{
+    String username;
+    String password;
+    boolean enabled;
 
-    //  id
-    private Long id;
-    //  用户名
-    private String username;
-    //  用户密码
-    private String password;
-    //  用户状态
-    private Boolean enabled;
-    //  客户端id
-    private String clientId;
-    //   权限集
-    private Collection<SimpleGrantedAuthority> authorities;
+    boolean accountNonExpired;//true
+    boolean accountNonLocked;//true
+    boolean credentialsNonExpired;//true
+    
+    Collection<? extends GrantedAuthority> authorities;
 
-    public SecurityUser() {
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public SecurityUser(LoginUserDto loginUserDto) {
-        this.setId(loginUserDto.getId());
-        this.setUsername(loginUserDto.getUsername());
-        this.setPassword(loginUserDto.getPassword());
-        this.setEnabled(loginUserDto.getStatus() == 1);
-        this.setClientId(loginUserDto.getClientId());
-        if (loginUserDto.getRoles() != null) {
-            authorities = new ArrayList<>();
-            loginUserDto.getRoles().forEach(item -> authorities.add(new SimpleGrantedAuthority(item)));
-        }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
+
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
+
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+        this.authorities = authorities;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
-    @Override//用户名
+    @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return enabled;
     }
-
 }

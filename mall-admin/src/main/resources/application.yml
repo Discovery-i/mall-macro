@@ -19,7 +19,6 @@ spring:
     password:  # Redis服务器连接密码（默认为空）
     timeout: 3000ms # 连接超时时间（毫秒）
 
-
 redis:
   database: mall
   key:
@@ -27,9 +26,10 @@ redis:
   expire:
     common: 86400 # 24小时
 
-ribbon:
-  ConnectTimeout: 3000 #服务请求连接超时时间（毫秒）
-  ReadTimeout: 3000 #服务请求处理超时时间（毫秒）
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+feign:
+  hystrix:
+    enabled: true
