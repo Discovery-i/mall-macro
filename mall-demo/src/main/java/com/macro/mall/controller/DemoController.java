@@ -2,7 +2,7 @@ package com.macro.mall.controller;
 
 import com.macro.mall.common.api.CommonResult;
 import com.macro.mall.model.UmsAdmin;
-import com.macro.mall.service.FeignAdminService;
+import com.macro.mall.feignService.FeignAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class DemoController {
 
     @ResponseBody
     @GetMapping("/getAdminItem/{id}")
-    public CommonResult<UmsAdmin> getItem(@PathVariable Long id){
+    public CommonResult<UmsAdmin> getItem(@PathVariable("id") Long id){
         return feignAdminService.getItem(id);
     }
 }

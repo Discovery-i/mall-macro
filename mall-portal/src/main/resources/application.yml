@@ -5,7 +5,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.168.1:8848 #配置Nacos地址
+        server-addr: 192.168.168.129:8848 #配置Nacos地址
 
   datasource:
     url: jdbc:mysql://192.168.168.129:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
@@ -33,6 +33,7 @@ spring:
         max-idle: 8 # 连接池中的最大空闲连接
         min-idle: 0 # 连接池中的最小空闲连接
     timeout: 3000ms # 连接超时时间（毫秒）
+
 # 自定义redis key
 redis:
   database: mall
@@ -41,5 +42,5 @@ redis:
     orderId: 'oms:orderId'
     member: 'ums:member'
   expire:
-    authCode: 600 # 验证码超期时间
+    authCode: 300 # 验证码超期时间
     common: 86400 # 24小时
