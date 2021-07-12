@@ -10,14 +10,11 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>mall-gateway</module>
-        <module>mall-eureka</module>
         <module>mall-common</module>
         <module>mall-mbg</module>
         <module>mall-portal</module>
         <module>mall-demo</module>
         <module>mall-admin</module>
-        <module>mall-auth</module>
     </modules>
 
     <parent>
