@@ -1,28 +1,29 @@
 package com.macro.mall.portal.controller;
 
 import com.macro.mall.common.api.CommonResult;
+import com.macro.mall.portal.service.UmsMemberService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "UmsMemberController", description = "会员管理")
 @RestController
 @RequestMapping("sso")
 public class UmsMemberController {
+    @Autowired
+    UmsMemberService umsMemberService;
 
     @ApiOperation("注册")
     @PostMapping("/register")
     public CommonResult register() {
-        return CommonResult.success("注册成功");
+        return null;
     }
 
     @ApiOperation("获取验证码")
     @GetMapping("/getAuthCode")
-    public CommonResult getAuthCode() {
-        return null;
+    public CommonResult getAuthCode(@RequestParam String telephone) {
+        return CommonResult.success(umsMemberService.getAuthCode(telephone),"获取验证码成功");
     }
 
     @ApiOperation("修改密码")
